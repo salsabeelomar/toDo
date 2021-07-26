@@ -1,0 +1,110 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+.light{
+     background-image: url(../asserts/imge/sunrise.jpg);
+    text-align: center;
+    height:163px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border: 10px #faebd780 solid;
+}
+ 
+
+ .dark{
+    background-image: url(../asserts/imge/sunset.jpg);
+    width: 100%;
+    text-align: center;
+    background-repeat: no-repeat;
+    height: 163px;
+    background-size: cover;
+    background-position: center;
+    border: 10px #07001d2b solid;
+        
+ }
+
+ body{
+    color:#643390;
+  background-color:antiquewhite;
+ }
+
+ .darkDay{
+    color: blanchedalmond;}
+
+
+ .fa-adjust:before {
+    position: absolute;
+    left: 90%;
+    font-size: 24px;
+    color: #a387b6e0;
+}
+
+.darkMode{
+    background-color: rgb(7, 0, 29);
+    color: #a387b6e0;
+}
+.fa-edit:before {
+    content: "\f044";
+    padding: 9px;
+    position: relative;
+    left: -20px;
+}
+.fa-trash-alt:before{
+    content: "\f2ed";
+    padding: 3px;
+    position: absolute;
+    left: 286px;
+  
+}
+li{
+    padding: 10px;
+    list-style-type: none;
+    border-bottom: 1px solid rgba(126, 98, 159, 0.36);
+    display: flex;
+    justify-content: space-between;
+}
+lable {
+
+    padding-left: 10px;
+}
+.task{
+    position: fixed;
+    bottom: 0;
+    width: 50%;
+    border: none;
+    padding: 8px;
+
+
+}
+.submit{
+    position:fixed;
+    bottom: 0px;
+    width: 50.5%;
+     left : 188px; 
+     float: left;
+    border: none;
+    padding: 8px;
+  
+}
+
+
+
+input[type="checkbox" i]{
+    height: 21px;
+    width: 11px;
+}
+h2{
+    position: fixed;
+    left: 15px;
+    top: 90px;
+    color: antiquewhite;
+}
+h3{
+    padding: 15px;
+    font-size: 32px;
+    color: #643390;
+}
