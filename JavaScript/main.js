@@ -7,21 +7,16 @@ const addingPlace=document.getElementsByClassName("addingPlace")[0];
 const submit=document.getElementsByClassName("submit")[0];
 const days={ weekday:"long", month:"short", day: "numeric"};
 const date =new Date();
-
-list.addEventListener("click",dele)
-
-
-window.addEventListener('DOMContentLoaded',createToDo)
 day.textContent= date.toLocaleDateString("English", days);
+
 
 function DarkLight() {
     light.classList.toggle("dark");
     lightMode.classList.toggle("darkMode");
     day.classList.toggle("darkDay")
 }
-
-
 submit.addEventListener("click",createToDo)
+list.addEventListener("click",dele)
 
 
  function createToDo(){
@@ -31,6 +26,7 @@ if(task.value){
 
     const check=document.createElement("input");
       check.type="checkbox";
+      check.setAttribute("class","check")
       item.appendChild(check);
 
     const todo=document.createElement("lable");
@@ -45,31 +41,24 @@ if(task.value){
     const edit=document.createElement("i"); 
     edit.classList.add("fal","fa-edit");
     item.appendChild(edit); 
-
-  
-    
     task.value="";
     
-    
    }
- 
-}
-
 function add(task){
     let items;
     if(localStorage.getItem("toDos")===null){
         items=[]
     }else{
         items=JSON.parse(localStorage.getItem("toDos"))
+        
     }
     items.push(task)
     localStorage.setItem ("toDos",JSON.stringify(items))
-  
-
 };
- window.onload=function(){
-    const getToDo=localStorage.getItem("toDo")
-    }
+  
+ 
+}
+
 
 
 function dele(ele){
