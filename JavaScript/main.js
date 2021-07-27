@@ -1,80 +1,70 @@
-const light=document.getElementsByClassName("light")[0];
-const lightMode=document.body;
-const day=document.getElementsByClassName("day")[0];
-const list=document.getElementsByClassName("list")[0];
-const task=document.getElementsByClassName("task")[0];
-const addingPlace=document.getElementsByClassName("addingPlace")[0];
-const submit=document.getElementsByClassName("submit")[0];
-const days={ weekday:"long", month:"short", day: "numeric"};
-const date =new Date();
-day.textContent= date.toLocaleDateString("English", days);
-
+const light = document.getElementsByClassName("light")[0];
+const lightMode = document.body;
+const day = document.getElementsByClassName("day")[0];
+const list = document.getElementsByClassName("list")[0];
+const task = document.getElementsByClassName("task")[0];
+const addingPlace = document.getElementsByClassName("addingPlace")[0];
+const submit = document.getElementsByClassName("submit")[0];
+const days = { weekday: "long", month: "short", day: "numeric" };
+const date = new Date();
+day.textContent = date.toLocaleDateString("English", days);
 
 function DarkLight() {
-    light.classList.toggle("dark");
-    lightMode.classList.toggle("darkMode");
-    day.classList.toggle("darkDay")
+  light.classList.toggle("dark");
+  lightMode.classList.toggle("darkMode");
+  day.classList.toggle("darkDay");
 }
-submit.addEventListener("click",createToDo)
-list.addEventListener("click",dele)
+submit.addEventListener("click", createToDo);
+list.addEventListener("click", dele);
 
-
- function createToDo(){
-if(task.value){
-    const item=document.createElement("li");
+function createToDo() {
+  if (task.value) {
+    const item = document.createElement("li");
     list.appendChild(item);
 
-    const check=document.createElement("input");
-      check.type="checkbox";
-      check.setAttribute("class","check")
-      item.appendChild(check);
+    const check = document.createElement("input");
+    check.type = "checkbox";
+    check.setAttribute("class", "check");
+    item.appendChild(check);
 
-    const todo=document.createElement("lable");
-    todo.textContent=task.value;
+    const todo = document.createElement("lable");
+    todo.textContent = task.value;
     item.appendChild(todo);
-    add(task.value)
+    add(task.value);
 
-    const trash =document.createElement("i");
-    trash.classList.add("far", "fa-trash-alt","trashButton");
-    item.appendChild(trash); 
+    const trash = document.createElement("i");
+    trash.classList.add("far", "fa-trash-alt", "trashButton");
+    item.appendChild(trash);
 
-    const edit=document.createElement("i"); 
-    edit.classList.add("fal","fa-edit");
-    item.appendChild(edit); 
-    task.value="";
-    
-   }
-function add(task){
+    const edit = document.createElement("i");
+    edit.classList.add("fal", "fa-edit");
+    item.appendChild(edit);
+    task.value = "";
+  }
+  function add(task) {
     let items;
-    if(localStorage.getItem("toDos")===null){
-        items=[]
-    }else{
-        items=JSON.parse(localStorage.getItem("toDos"))
-        
+    if (localStorage.getItem("toDos") === null) {
+      items = [];
+    } else {
+      items = JSON.parse(localStorage.getItem("toDos"));
     }
-    items.push(task)
-    localStorage.setItem ("toDos",JSON.stringify(items))
-};
-  
- 
+    items.push(task);
+    localStorage.setItem("toDos", JSON.stringify(items));
+  }
 }
 
-
-
-function dele(ele){
-    let itemafterdelet;
-    const value=ele.target;
-    if(value.classList[2]==="trashButton"){
-    const delItem=value.parentElement;
-    delItem.remove(); 
+function dele(ele) {
+  let itemafterdelet;
+  const value = ele.target;
+  if (value.classList[2] === "trashButton") {
+    const delItem = value.parentElement;
+    delItem.remove();
     if (localStorage.getItem("toDos") === null) {
-       itemafterdelet= [];
-      } else{
-        itemafterdelet=JSON.parse(localStorage.getItem("toDos"))
-      }
-    const delet=itemafterdelet.splice(itemafterdelet.indexOf(value));
-    localStorage.setItem("toDos",JSON.stringify(itemafterdelet))
-   
-    };
-
+      itemafterdelet = [];
+    } else {
+      itemafterdelet = JSON.parse(localStorage.getItem("toDos"));
+    }
+    const delet = itemafterdelet.splice(itemafterdelet.indexOf(value));
+    localStorage.setItem("toDos", JSON.stringify(itemafterdelet));
+  }
 }
